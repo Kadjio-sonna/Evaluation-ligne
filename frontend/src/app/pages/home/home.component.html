@@ -1,0 +1,10 @@
+
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <h1 class="text-light" *ngIf="user">Bienvenu {{user.name}}</h1>
+</div>
+
+<div class="text-center">
+  <a class="nav-link nav-link-icon" routerLinkActive="active" [routerLink]="['/login']">
+    <button type="button" class="btn btn-primary my-4">Sign in</button>
+  </a>
+</div>
