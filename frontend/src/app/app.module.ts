@@ -21,6 +21,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { AccueilComponent } from './pages/accueil/accueil.component';
 import { ToastrModule } from 'ngx-toastr';
 import { CoursComponent } from './pages/cours/cours.component';
+import { DetailCourComponent } from './pages/detail-cour/detail-cour.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { CoursComponent } from './pages/cours/cours.component';
     LessonComponent,
     HomeComponent,
     AccueilComponent,
-    CoursComponent
+    CoursComponent,
+    DetailCourComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -19,10 +19,18 @@ use Illuminate\Support\Facades\Route;
 });
  */
 
- Route::get('/', 'UserController@index');
+Route::get('/', 'UserController@index');
+Route::get('/user', 'UserController@user')->middleware('auth:api');
+Route::post('/register', 'UserController@register');
 
- Route::get('/user', 'UserController@user')->middleware('auth:api');
 
-  Route::post('/register', 'UserController@register');
+Route::any('addCour', 'CoursController@addCour');
+Route::any('updateCour', 'CoursController@updateCour');
+Route::any('deleteCour', 'CoursController@deleteCour');
+Route::any('showCour', 'CoursController@showCour');
+Route::get('showOneCour/{id}', 'CoursController@showOneCour');
+
+
+
 
 

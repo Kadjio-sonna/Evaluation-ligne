@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { AccueilComponent } from './pages/accueil/accueil.component';
+import { DetailCourComponent } from './pages/detail-cour/detail-cour.component';
 
 const routes: Routes =[
   {
@@ -15,6 +16,9 @@ const routes: Routes =[
   },
   { path: 'accueil',
     component: AccueilComponent
+  },
+  { path: 'detail-cour/:id',
+    component: DetailCourComponent
   },
 
   {

@@ -1,6 +1,24 @@
-<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+<div class="header bg-gradient-dark pb-8 pt-5 pt-md-8">
 
-  <h1 class="text-light"> BIENVENU BIENVENU</h1>
+
+<h2 class="text-light" font-weight-bold>Cours recommandés</h2>
+<hr>
+
+<div class="row">
+<div class="card mx-4" style="width: 16rem;" *ngFor= "let cour of AllCours">
+    <img class="card-img-top" style="height: 10rem;"  src="{{cour.image}}" alt="Card image cap">
+    <div class="card-body">
+      <h2 class="card-title text-primary font-weight-bold"> {{cour.titre}} </h2>
+      <p class="card-text font-weight-bold"> {{cour.description}} </p>
+      <p class="card-text"><small class="text-muted font-weight-bold"><i class="far fa-clock"></i> {{cour.heure}} </small></p>
+
+      <a class="card-btn" routerLinkActive="active" [routerLink]="['/detail-cour/'+cour.id]">Visit <span>&rarr;</span></a>
+    </div>
+  </div>
 </div>
+</div>
+
+
+
 
 
