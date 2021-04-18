@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       password: formData.password,
       grant_type: 'password',
       client_id: 2,
-      client_secret: '0b29X9qahvJuKJYjZ45Hs7Xd6zTfWYj0zI1pQ96F',
+      client_secret: 'M8r6qiHkHB3vqbxYwsBGDUwPUhNo65qQ7fRnqXsC',
       scope: '*'
     }
 

@@ -18,7 +18,8 @@ class CoursController extends Controller
             'titre' => 'required',
             'description' => 'required',
             'heure' => 'required',
-            'image' => 'required'
+            'image' => 'required',
+            'cour_pdf' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -34,6 +35,11 @@ class CoursController extends Controller
         $name = time()."-". $image->getClientOriginalName();
         $image->move(public_path("uploads"), $name);
         $cour->image = url("uploads/" . $name);
+
+        $cour_pdf = $request->file("cour_pdf");
+        $name = time() . "-" . $cour_pdf->getClientOriginalName();
+        $cour_pdf->move(public_path("uploads"), $name);
+        $cour->cour_pdf = url("uploads/" . $name);
 
         $cour->save();
 

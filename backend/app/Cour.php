@@ -16,6 +16,6 @@ class Cour extends Model
      * @var array
      */
     protected $fillable = [
-        'titre', 'description', 'heure',
+        'titre', 'description', 'heure', 'image', 'cour_pdf'
     ];
 }

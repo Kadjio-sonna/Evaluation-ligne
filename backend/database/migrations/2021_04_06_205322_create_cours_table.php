@@ -19,6 +19,7 @@ class CreateCoursTable extends Migration
             $table->string('description')->default('null')->nullable();
             $table->string('heure')->default('null')->nullable();
             $table->string('image')->default('null')->nullable();
+            $table->string('cour_pdf')->default('null')->nullable();
             $table->timestamps();
         });
     }

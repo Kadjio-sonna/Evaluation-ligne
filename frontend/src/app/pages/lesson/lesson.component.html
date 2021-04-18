@@ -112,7 +112,8 @@
                 <th scope="col">titre</th>
                 <th scope="col">Description</th>
                 <th scope="col">Heure</th>
-                <!-- <th scope="col">fichier</th> -->
+                <th scope="col">Image</th>
+                <th scope="col">fichier</th>
                 <th scope="col">Options</th>
               </tr>
             </thead>
@@ -129,6 +130,9 @@
                       <img alt="Image placeholder" src="{{cour.image}}" class="rounded-circle">
                     </a>
                   </div>
+                </td>
+                <td> 
+                    <a class="btn btn-info btn-sm btn-round has-ripple" href="{{cour.cour_pdf}}"><i class="fas fa-download"></i> {{""+cour.cour_pdf.split('-')[1].toLowerCase()}} </a>
                 </td>
                 <!-- <td> lien du cour </td> -->
                 <td class="text-center">
@@ -182,6 +186,13 @@
                             <div class="form-group">
                                 <label class="floating-label" for="image">Image</label>
                                 <input name="image" (change)="onChangeFile($event)" type="file" class="form-control" id="Subject" placeholder="">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="floating-label" for="cours-pdf">cours pdf</label>
+                                <input name="image" (change)="onChangeFilePdf($event)" type="file" class="form-control" id="cours-pdf">
                             </div>
                         </div>
 

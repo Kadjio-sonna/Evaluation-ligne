@@ -4,4 +4,5 @@ export class CourModel {
   "description":string="";
   "heure":string="";
   "image":string="";
+  "cour_pdf":string="";
 }

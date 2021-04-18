@@ -13,6 +13,7 @@ export class LessonComponent implements OnInit {
   cour: CourModel= new CourModel();
   AllCours: CourModel[] = [];
   fileData: any;
+  pdfData: any;
 
   constructor(private toastr: ToastrService, private courservice: CourServiceService) { }
 
@@ -31,6 +32,8 @@ export class LessonComponent implements OnInit {
     form.append("description", this.cour.description)
     form.append("heure", this.cour.heure)
     form.append("image", this.fileData)
+    form.append("cour_pdf", this.pdfData)
+
     console.log(form);
 
     this.courservice.addCour(form).subscribe(res=> {
@@ -88,6 +91,29 @@ export class LessonComponent implements OnInit {
   }
 
   onChangeFile(event) {
-    this.fileData = event.target.files[0];
+    let file = event.target.files[0];
+    let extension = file.name.split('.')[1].toLowerCase();
+    let extensionImg = ['png', 'jpg', 'jpeg'];
+
+    if(extensionImg.indexOf(extension) != -1) {
+          console.log('image');
+          this.fileData = file;
+    }else {
+      this.toastr.error("Selectionnez une image !", "Error");
+    }
+    // console.log(extension);
+  }
+
+  onChangeFilePdf(event) {
+    let file = event.target.files[0];
+    let extension = file.name.split('.')[1].toLowerCase();
+    let extensionImg = ['pdf', 'docx'];
+
+    if(extensionImg.indexOf(extension) != -1) {
+          console.log('pdf ou word');
+          this.pdfData = file;
+    }else {
+      this.toastr.error("Selectionnez un pdf ou word !", "Error");
+    }
   }
 }
