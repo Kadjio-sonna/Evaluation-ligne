@@ -28,4 +28,5 @@ export class DetailCourComponent implements OnInit {
       this.cour = cour;
     });
   }
+
 }
