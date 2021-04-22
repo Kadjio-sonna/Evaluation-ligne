@@ -30,6 +30,7 @@ Route::any('deleteCour', 'CoursController@deleteCour');
 Route::any('showCour', 'CoursController@showCour');
 Route::get('showOneCour/{id}', 'CoursController@showOneCour');
 
+Route::post('addTeacher', 'TeachersController@addTeacher');
 
 
 

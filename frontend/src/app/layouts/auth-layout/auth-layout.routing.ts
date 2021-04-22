@@ -5,6 +5,7 @@ import { DashboardComponent } from 'src/app/pages/dashboard/dashboard.component'
 import { DetailCourComponent } from 'src/app/pages/detail-cour/detail-cour.component';
 import { HomeComponent } from 'src/app/pages/home/home.component';
 import { LessonComponent } from 'src/app/pages/lesson/lesson.component';
+import { ProfesseurComponent } from 'src/app/pages/professeur/professeur.component';
 
 import { LoginComponent } from '../../pages/login/login.component';
 import { RegisterComponent } from '../../pages/register/register.component';
@@ -15,6 +16,7 @@ export const AuthLayoutRoutes: Routes = [
     { path: 'home',       component: HomeComponent },
     { path: 'acceuil',       component: AccueilComponent },
     { path: 'cours',       component: CoursComponent },
-    { path: 'detail-cour',  component: DetailCourComponent }
+    { path: 'detail-cour',  component: DetailCourComponent },
+    { path: 'professeur',  component: ProfesseurComponent }
 
 ];

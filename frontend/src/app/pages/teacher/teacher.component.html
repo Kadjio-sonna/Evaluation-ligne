@@ -88,8 +88,9 @@
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Subject</th>
-                <th scope="col">Address</th>
+                <th scope="col">Phone</th>
                 <th scope="col">Sexe</th>
+                <th scope="col">Image</th>
                 <th scope="col">Options</th>
               </tr>
             </thead>
@@ -100,6 +101,13 @@
                 <td> Maths </td>
                 <td> Douala </td>
                 <td> Masculin </td>
+                <td>
+                  <div class="avatar-group">
+                    <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
+                      <img alt="Image placeholder" src="assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
+                    </a>
+                  </div>
+                </td>
                 <td class="text-center">
                       <button class="btn btn-info btn-sm btn-round has-ripple" data-toggle="modal" data-target="#modal-report-edit"><i class="fas fa-edit"></i>Edit</button>
                       <button class="btn btn-danger btn-sm btn-round has-ripple"><i class="fas fa-trash"></i> Delete</button>
@@ -127,34 +135,34 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label class="floating-label" for="Name">Name</label>
-                                <input type="text" class="form-control" id="Name" placeholder="">
+                                <input name="name" [(ngModel)]="teacher.name"  type="text" class="form-control" id="Name" placeholder="">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group fill">
                                 <label class="floating-label" for="Email">Email</label>
-                                <input type="email" class="form-control" id="Email" placeholder="">
+                                <input name="email" [(ngModel)]="teacher.email" type="email" class="form-control" id="Email" placeholder="">
                             </div>
                         </div>
 
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label class="floating-label" for="Subject">Subject</label>
-                                <input type="text" class="form-control" id="Subject" placeholder="">
+                                <input name="subject" [(ngModel)]="teacher.subject" type="text" class="form-control" id="Subject" placeholder="">
                             </div>
                         </div>
                         <div class="col-sm-6">
                           <div class="form-group fill">
                             <label class="floating-label" for="Password">Phone</label>
-                            <input type="number" class="form-control" id="Address" placeholder="">
+                            <input name="phone" [(ngModel)]="teacher.phone" type="number" class="form-control" id="Phone" placeholder="">
                           </div>
                         </div>
-                        <div class="col-sm-6">
+                        <!-- <div class="col-sm-6">
                             <div class="form-group">
                                 <label class="floating-label" for="Sex">Sexe</label>
                                 <select class="form-control" id="Sex">
@@ -163,9 +171,24 @@
                                     <option value="female">Female</option>
                                 </select>
                             </div>
+                        </div> -->
+
+                        <div class="col-sm-6">
+                          <div class="form-group fill">
+                            <label class="floating-label" for="Sexe">Sexe</label>
+                            <input name="sexe" [(ngModel)]="teacher.sexe" type="text" class="form-control" id="Sexe" placeholder="">
+                          </div>
                         </div>
+
+                        <div class="col-sm-6">
+                          <div class="form-group fill">
+                            <label class="floating-label" for="Image">Image</label>
+                            <input name="image" (change)="onChangeFile($event)" type="file" class="form-control" id="Image" placeholder="">
+                          </div>
+                        </div>
+
                         <div class="col-sm-12">
-                            <button class="btn btn-primary">Submit</button>
+                            <button (click)="addTeacher()" type="button" class="btn btn-primary">add Teacher</button>
                             <button class="btn btn-danger">Clear</button>
                         </div>
                     </div>
@@ -214,7 +237,7 @@
                             <input type="text" class="form-control" id="Address" placeholder="">
                           </div>
                         </div>
-                        <div class="col-sm-6">
+                        <!-- <div class="col-sm-6">
                             <div class="form-group">
                                 <label class="floating-label" for="Sex">Select Sex</label>
                                 <select class="form-control" id="Sex">
@@ -223,7 +246,22 @@
                                     <option value="female">Female</option>
                                 </select>
                             </div>
+                        </div> -->
+
+                        <div class="col-sm-6">
+                          <div class="form-group fill">
+                            <label class="floating-label" for="Sexe">Sexe</label>
+                            <input type="text" class="form-control" id="Sexe" placeholder="">
+                          </div>
                         </div>
+
+                        <div class="col-sm-6">
+                          <div class="form-group fill">
+                            <label class="floating-label" for="Image">Image</label>
+                            <input type="file" class="form-control" id="Image" placeholder="">
+                          </div>
+                        </div>
+
                         <div class="col-sm-12">
                             <button class="btn btn-primary">Submit</button>
                             <button class="btn btn-danger">Clear</button>
