@@ -84,10 +84,13 @@
           </div>
         </div>
       </div> -->
+      
       <div class="row align-items-center m-l-0">
-            <div class="col-sm-6">
+            <div class="col-sm-6 pos">
+                <input class="form-control position-search" placeholder="Search" type="text"
+                        #searchInput (keyup)= "search(searchInput.value)">
             </div>
-            <div class="col-sm-6 text-right mb--8">
+            <div class="col-sm-6 text-right mb--8 ">
                <button class="btn btn-success btn-sm btn-round has-ripple" data-toggle="modal" data-target="#modal-report"><i class="fas fa-plus"></i> Add Lesson </button>
             </div>
         </div>
@@ -96,7 +99,7 @@
 </div>
 
 <!-- Page content -->
-<div class="container-fluid mt--7">
+<div class="container-fluid mt--9">
   <!-- Dark table -->
   <div class="row mt-5">
     <div class="col">
@@ -245,6 +248,13 @@
                             <div class="form-group">
                                 <label class="floating-label" for="image">Image</label>
                                 <input name="image" (change)="onChangeFile($event)" type="file" class="form-control" id="Subject" >
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="floating-label" for="cours-pdf">cours pdf</label>
+                                <input name="image" (change)="onChangeFilePdf($event)" type="file" class="form-control" id="cours-pdf">
                             </div>
                         </div>
 

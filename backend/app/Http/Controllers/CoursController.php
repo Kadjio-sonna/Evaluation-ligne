@@ -53,7 +53,9 @@ class CoursController extends Controller
             'id' => 'required',
             'titre' => 'required',
             'description' => 'required',
-            'heure' => 'required'
+            'heure' => 'required',
+            'image' => 'required',
+            'cour_pdf' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -64,6 +66,21 @@ class CoursController extends Controller
         $cour->titre = $request->titre;
         $cour->description = $request->description;
         $cour->heure = $request->heure;
+
+        if ($image = $request->file("image") != null) {
+            $image = $request->file("image");
+            $name = time() . "-" . $image->getClientOriginalName();
+            $image->move(public_path("uploads"), $name);
+            $cour->image = url("uploads/" . $name);
+        }
+        
+        if ($cour_pdf = $request->file("cour_pdf") != null) {
+            $cour_pdf = $request->file("cour_pdf");
+            $name = time() . "-" . $cour_pdf->getClientOriginalName();
+            $cour_pdf->move(public_path("uploads"), $name);
+            $cour->cour_pdf = url("uploads/" . $name);
+        }
+       
 
         $cour->save();
 

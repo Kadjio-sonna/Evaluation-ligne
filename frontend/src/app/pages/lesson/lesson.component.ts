@@ -60,6 +60,9 @@ export class LessonComponent implements OnInit {
     form.append("titre", this.cour.titre)
     form.append("description", this.cour.description)
     form.append("heure", this.cour.heure)
+    form.append("image", this.fileData)
+    form.append("cour_pdf", this.pdfData)
+
     console.log(form);
 
     this.courservice.updateCour(form).subscribe(res=> {
@@ -88,6 +91,15 @@ export class LessonComponent implements OnInit {
        this.toastr.error(element, "Error");
        });
     })
+  }
+
+  search(v: any) {
+    var form = new FormData();
+    form.append("keywords", v);
+    this.courservice.showCour(form).subscribe((cours: CourModel[])=> {
+    console.log(cours);
+    this.AllCours = cours;
+    });;
   }
 
   onChangeFile(event) {

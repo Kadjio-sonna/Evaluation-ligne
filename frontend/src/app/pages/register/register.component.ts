@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
     }, error=> {
       console.log('error');
       console.log(error);
-      this.toastr.error(error.error.error, "error");
+      this.toastr.success(error.error.text, "error");
     });
   }
 }
