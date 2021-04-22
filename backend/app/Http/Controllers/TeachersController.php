@@ -44,4 +44,18 @@ class TeachersController extends Controller
 
         return Response::json(['message' => 'Professeur Successfully Added !']);
     }
+
+    public static function showTeacher(Request $request)
+    {
+        session(['key' => $request->keywords]);
+        $teachers = Teacher::where(function ($q) {
+            $value = session('key');
+            $q->where('teachers.id', 'LIKE', '%' . $value . '%')
+                ->orwhere('teachers.name', 'LIKE', '%' . $value . '%')
+                ->orwhere('teachers.email', 'LIKE', '%' . $value . '%')
+                ->orwhere('teachers.subject', 'LIKE', '%' . $value . '%');
+        })->get();
+
+        return Response::json($teachers);
+    }
 }

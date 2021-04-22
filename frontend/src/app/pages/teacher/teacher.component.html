@@ -94,17 +94,17 @@
                 <th scope="col">Options</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody *ngFor= "let teacher of AllTeachers">
               <tr>
-                <td> Tsague fouep</td>
-                <td> Tsague@prof.com </td>
-                <td> Maths </td>
-                <td> Douala </td>
-                <td> Masculin </td>
+                <td> {{teacher.name}} </td>
+                <td> {{teacher.email}} </td>
+                <td> {{teacher.subject}} </td>
+                <td> {{teacher.phone}} </td>
+                <td> {{teacher.sexe}} </td>
                 <td>
                   <div class="avatar-group">
                     <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
-                      <img alt="Image placeholder" src="assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
+                      <img alt="Image placeholder" src="{{teacher.image_prof}}" class="rounded-circle">
                     </a>
                   </div>
                 </td>
@@ -113,9 +113,7 @@
                       <button class="btn btn-danger btn-sm btn-round has-ripple"><i class="fas fa-trash"></i> Delete</button>
                 </td>
               </tr>
-              
-             
-             
+                         
             </tbody>
           </table>
         </div>

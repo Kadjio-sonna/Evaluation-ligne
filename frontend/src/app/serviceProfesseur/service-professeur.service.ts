@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { TeacherModel } from '../models/teacher.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,4 +15,9 @@ export class ServiceProfesseurService {
   addTeacher(form: any) {
     return this.http.post(this.baseUrl+'addTeacher', form);
   }
+
+    showTeacher(form: any): Observable<TeacherModel[]>{
+    return this.http.post<TeacherModel[]>(this.baseUrl+'showTeacher', form);
+  }
+
 }

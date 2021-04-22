@@ -11,10 +11,16 @@ import { ServiceProfesseurService } from 'src/app/serviceProfesseur/service-prof
 export class TeacherComponent implements OnInit {
 
   teacher: TeacherModel = new TeacherModel();
+  AllTeachers: TeacherModel[] = [];
   image_prof: any;
   constructor(private toastr: ToastrService, private teacherservice: ServiceProfesseurService) { }
 
   ngOnInit(): void {
+
+    this.teacherservice.showTeacher("").subscribe((teachers: TeacherModel[])=> {
+      console.log(teachers);
+      this.AllTeachers = teachers;
+    });
   }
 
 
