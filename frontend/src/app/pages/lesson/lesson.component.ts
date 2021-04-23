@@ -18,11 +18,15 @@ export class LessonComponent implements OnInit {
   constructor(private toastr: ToastrService, private courservice: CourServiceService) { }
 
   ngOnInit(): void {
+    this.refreshData();
+  }
 
+  refreshData() {
     this.courservice.showCour("").subscribe((cours: CourModel[])=> {
       console.log(cours);
       this.AllCours = cours;
     });
+
   }
 
   addCour() {
@@ -40,12 +44,15 @@ export class LessonComponent implements OnInit {
       var r:any= res;
       this.toastr.success(r.message, "Success!");
 
+      this.refreshData();
+
     }, error=> {
       console.log(error.error.error);
         error.error.error.forEach((element: string)=> {
        this.toastr.error(element, "Error");
        });
     })
+
   }
 
 
@@ -69,12 +76,15 @@ export class LessonComponent implements OnInit {
       var r:any= res;
       this.toastr.success(r.message, "Success!");
 
+          this.refreshData();
+
     }, error=> {
       console.log(error.error.error);
         error.error.error.forEach((element: string)=> {
        this.toastr.error(element, "Error");
        });
     })
+
   }
 
   deleteCour(idCour) {
@@ -85,12 +95,16 @@ export class LessonComponent implements OnInit {
       var r: any = res;
       console.log(r);
       this.toastr.success(r.message, "Success!");
+
+          this.refreshData();
+
     }, error=> {
         console.log(error.error.error);
         error.error.error.forEach((element: string)=> {
        this.toastr.error(element, "Error");
        });
     })
+
   }
 
   search(v: any) {

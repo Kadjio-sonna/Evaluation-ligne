@@ -2,7 +2,7 @@
   <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
     <div class="container px-4">
       <a class="navbar-brand" routerLinkActive="active" [routerLink]="['/dashboard']">
-        <img src="assets/img/brand/argon-white.png" />
+        <i class="ni ni-hat-3 " style="font-size: 30px;color:black;">E-LEARN</i>
       </a>
       <button class="navbar-toggler" type="button" (click)="isCollapsed=!isCollapsed"
          aria-controls="sidenav-collapse-main">
@@ -62,12 +62,12 @@
 
           </li>
 
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link nav-link-icon" routerLinkActive="active" [routerLink]="['/user-profile']">
               <i class="ni ni-single-02"></i>
               <span class="nav-link-inner--text ">Profile</span>
             </a>
-          </li>
+          </li> -->
 
           <li class="nav-item">
             <a class="nav-link nav-link-icon" routerLinkActive="active" [routerLink]="['/cours']">
@@ -78,8 +78,8 @@
 
           <li class="nav-item">
             <a class="nav-link nav-link-icon" routerLinkActive="active" [routerLink]="['/professeur']">
-              <i class="ni ni-book-bookmark"></i>
-              <span class="nav-link-inner--text">Teachears</span>
+              <i class="ni ni-single-02"></i>
+              <span class="nav-link-inner--text">Teachers</span>
             </a>
           </li>
         </ul>

@@ -20,4 +20,12 @@ export class ServiceProfesseurService {
     return this.http.post<TeacherModel[]>(this.baseUrl+'showTeacher', form);
   }
 
+    updateTeacher(form: any) {
+    return this.http.post(this.baseUrl+'updateTeacher', form);
+  }
+
+  deleteTeacher(form: any) {
+    return this.http.post(this.baseUrl+'deleteTeacher', form);
+  }
+
 }

@@ -16,13 +16,16 @@ export class TeacherComponent implements OnInit {
   constructor(private toastr: ToastrService, private teacherservice: ServiceProfesseurService) { }
 
   ngOnInit(): void {
+    this.refreshData();
+  }
 
+  refreshData() {
     this.teacherservice.showTeacher("").subscribe((teachers: TeacherModel[])=> {
       console.log(teachers);
       this.AllTeachers = teachers;
     });
-  }
 
+  }
 
   addTeacher() {
 
@@ -40,8 +43,63 @@ export class TeacherComponent implements OnInit {
       var r:any= res;
       this.toastr.success(r.message, "Success!");
 
+      this.refreshData();
+
     }, error=> {
       console.log(error.error.error);
+        error.error.error.forEach((element: string)=> {
+       this.toastr.error(element, "Error");
+       });
+    })
+
+  }
+
+  showUpdateModal(teacher: TeacherModel) {
+    this.teacher = teacher;
+  }
+
+  updateTeacher() {
+
+    var form = new FormData();
+    form.append("id", this.teacher.id.toString())
+    form.append("name", this.teacher.name)
+    form.append("email", this.teacher.email)
+    form.append("subject", this.teacher.subject)
+    form.append("phone", this.teacher.phone)
+    form.append("sexe", this.teacher.sexe)
+    form.append("image_prof", this.image_prof)
+
+
+    console.log(form);
+
+    this.teacherservice.updateTeacher(form).subscribe(res=> {
+      var r:any= res;
+      this.toastr.success(r.message, "Success!");
+
+          this.refreshData();
+
+    }, error=> {
+      console.log(error.error.error);
+        error.error.error.forEach((element: string)=> {
+       this.toastr.error(element, "Error");
+       });
+    })
+
+  }
+
+  deleteTeacher(idTeacher) {
+
+    var form = new FormData();
+    form.append("id", idTeacher);
+    this.teacherservice.deleteTeacher(form).subscribe(res=> {
+      var r: any = res;
+      console.log(r);
+      this.toastr.success(r.message, "Success!");
+
+          this.refreshData();
+
+    }, error=> {
+        console.log(error.error.error);
         error.error.error.forEach((element: string)=> {
        this.toastr.error(element, "Error");
        });
